@@ -2,8 +2,11 @@ package com.kec.gocart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -18,6 +21,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvMinusCounter;
     //textView3
 
+    private int counterValue = 0;
+
+
+    private Button btn;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +36,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+
     private void initViews() {
 
         counterTv = findViewById(R.id.textView);
         tvPlusCounter = findViewById(R.id.textView4);
         tvMinusCounter = findViewById(R.id.textView3);
+        btn = findViewById(R.id.btn1);
 
     }
 
@@ -40,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         tvPlusCounter.setOnClickListener(this);
         tvMinusCounter.setOnClickListener(this);
+        btn.setOnClickListener(this);
 
     }
 
@@ -47,22 +60,61 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
+
         switch (v.getId()){
             case R.id.textView4:
 
                 // plus counter
 
-
+                doCounterIncreaseWork();
 
                 break;
 
             case R.id.textView3:
 
                 // minus counter
+                doCounterDecreaseWork();
+
+
+
+                break;
+
+            case R.id.btn1:
+
+
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                intent.putExtra("COUNTER_VALUE",counterTv.getText());
+                startActivity(intent);
+//                overridePendingTransition(R.anim.fade_in_animation,R.anim.fade_in_animation);
 
 
                 break;
         }
 
     }
+
+    private void doCounterDecreaseWork() {
+
+        if (counterValue < 0){
+            return;
+        }
+        counterValue = counterValue--;
+
+        tvPlusCounter.setText(String.valueOf(counterValue));
+
+
+
+    }
+
+    private void doCounterIncreaseWork() {
+
+
+        counterValue = counterValue++;
+        tvPlusCounter.setText(String.valueOf(counterValue));
+
+
+
+    }
+
+
 }
