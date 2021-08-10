@@ -1,13 +1,15 @@
-package com.kec.gocart;
+package com.kec.gocart.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.kec.gocart.HomeActivity;
+import com.kec.gocart.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         counterValue = counterValue--;
 
-        tvPlusCounter.setText(String.valueOf(counterValue));
+        counterTv.setText(String.valueOf(counterValue));
 
 
 
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         counterValue = counterValue++;
-        tvPlusCounter.setText(String.valueOf(counterValue));
+        counterTv.setText(String.valueOf(counterValue));
 
 
 
