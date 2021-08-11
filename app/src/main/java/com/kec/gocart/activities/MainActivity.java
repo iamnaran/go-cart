@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.kec.gocart.HomeActivity;
+import com.kec.gocart.home.HomeActivity;
 import com.kec.gocart.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvMinusCounter;
     //textView3
 
-    private int counterValue = 0;
+    private int counterValue = 12;
 
 
     private Button btn;
@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvPlusCounter.setOnClickListener(this);
         tvMinusCounter.setOnClickListener(this);
         btn.setOnClickListener(this);
+
+        counterTv.setText(String.valueOf(counterValue));
 
     }
 
@@ -97,12 +99,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void doCounterDecreaseWork() {
 
-        if (counterValue < 0){
+        if (counterValue <= 0){
+            counterTv.setText("0");
             return;
-        }
-        counterValue = counterValue--;
+        }else {
+            counterValue--;
 
-        counterTv.setText(String.valueOf(counterValue));
+            counterTv.setText(String.valueOf(counterValue));
+        }
 
 
 
@@ -111,12 +115,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void doCounterIncreaseWork() {
 
 
-        counterValue = counterValue++;
+        counterValue++;
         counterTv.setText(String.valueOf(counterValue));
 
 
 
     }
+
+
 
 
 }

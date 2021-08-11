@@ -23,7 +23,6 @@ public class AccountActivity extends AppCompatActivity {
     private Button btnOpen;
     private ImageView imageView;
 
-
     private final int PHOTO_REQUEST = 0012;
     private final int PERMISSION_REQUEST = 001212;
 

@@ -1,4 +1,4 @@
-package com.kec.gocart;
+package com.kec.gocart.home;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.kec.gocart.R;
 import com.kec.gocart.fragment.ActivityLogFragment;
 import com.kec.gocart.fragment.CartFragment;
 import com.kec.gocart.fragment.ProfileFragment;
